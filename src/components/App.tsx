@@ -1,7 +1,7 @@
 import React, { useState, FC, Fragment } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import styled from 'styled-components'
-import { SList, SParty, SSpinner } from './'
+import { SInput, SList, SParty, SSpinner } from './'
 import { updatePicked } from '../utils/filters'
 import { Characters } from '../types/characters'
 import { DEFAULT } from '../queries/characters'
@@ -28,7 +28,7 @@ const App: FC<SAppProps> = ({ className }) => {
   return (
     <Fragment>
       <div className={className}>
-        {/* <SInput setCharacters={setData} /> */}
+        <SInput setCharacters={setData} />
         <SList
           data={
             data

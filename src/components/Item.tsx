@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, SyntheticEvent } from 'react'
 import styled from 'styled-components'
 import { SButton } from './'
 import { Characters } from '../types/characters'
@@ -6,7 +6,7 @@ import { Characters } from '../types/characters'
 interface SItemProps {
   data: Characters.Item
   pickItem: (picked: Characters.Item) => () => void
-  bann: (id: string) => () => void
+  bann: (id: string) => (e: SyntheticEvent<HTMLButtonElement>) => void
   className?: string
 }
 
@@ -28,8 +28,11 @@ export const SItem = styled(Item)`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  transition: all 160ms linear;
+  transition: all 150ms ease-out;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.95);
   }
 `

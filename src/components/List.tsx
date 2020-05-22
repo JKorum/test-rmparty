@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, SyntheticEvent } from 'react'
 import styled from 'styled-components'
 import { SItem } from './'
 import { noBanned } from '../utils/filters'
@@ -14,7 +14,8 @@ const List: FC<SListProps> = ({ className, data, pickItem }) => {
   const [banned, setBanned] = useState<string[]>([])
 
   const handleBann = (id: string) => {
-    return () => {
+    return (e: SyntheticEvent<HTMLButtonElement>) => {
+      e.stopPropagation()
       setBanned(prev => [...prev, id])
     }
   }
@@ -41,5 +42,5 @@ export const SList = styled(List)`
   justify-content: center;
   max-width: 1200px;
   margin-top: 15px;
-  margin-bottom: 85px;
+  margin-bottom: 30px;
 `
