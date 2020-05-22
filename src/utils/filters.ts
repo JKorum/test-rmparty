@@ -2,16 +2,16 @@ import { Characters } from '../types/characters'
 
 export const noBanned = (
   characters: Characters.Item[],
-  banned: string[]
+  banned: string[],
 ): Characters.Item[] => {
-  return characters.filter((item) => !banned.includes(item.id))
+  return characters.filter(item => !banned.includes(item.id))
 }
 
 export const updatePicked = (
   picked: Characters.Item,
-  prev: Characters.Item[]
+  prev: Characters.Item[],
 ): Characters.Item[] | null => {
-  let idx = prev.findIndex((item) => item.name === picked.name)
+  let idx = prev.findIndex(item => item.name === picked.name)
   // character is already picked
   if (idx !== -1) {
     return null
@@ -23,8 +23,8 @@ export const updatePicked = (
     return null
   }
 
-  idx = prev.findIndex((item) =>
-    item.name.toLowerCase().includes(matched[0].toLowerCase())
+  idx = prev.findIndex(item =>
+    item.name.toLowerCase().includes(matched[0].toLowerCase()),
   )
 
   if (idx === -1) {
@@ -43,7 +43,7 @@ export const updatePicked = (
 
 export const pickCharacter = (
   items: Characters.Item[],
-  char: 'rick' | 'morty'
+  char: 'rick' | 'morty',
 ): Characters.Item | undefined => {
-  return items.find((item) => item.name.toLocaleLowerCase().includes(char))
+  return items.find(item => item.name.toLowerCase().includes(char))
 }
