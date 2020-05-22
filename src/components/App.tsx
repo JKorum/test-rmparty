@@ -1,9 +1,8 @@
 import React, { useState, FC, Fragment } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import styled from 'styled-components'
-import { SInput, SList, SParty, SSpinner } from './'
+import { SList, SParty, SSpinner } from './'
 import { updatePicked } from '../utils/filters'
-
 import { Characters } from '../types/characters'
 import { DEFAULT } from '../queries/characters'
 
@@ -15,19 +14,21 @@ const App: FC<SAppProps> = ({ className }) => {
   const { loading, data: initial } = useQuery<Characters.Data>(DEFAULT)
 
   const [data, setData] = useState<Characters.Data | undefined>()
-  const [pickedCharacters, pick] = useState<Characters.Item[]>([])
+  const [pickedItems, pickItem] = useState<Characters.Item[]>([])
 
   const handlePick = (picked: Characters.Item) => {
-    const updated = updatePicked(picked, pickedCharacters)
-    if (updated) {
-      pick(updated)
+    return () => {
+      const updated = updatePicked(picked, pickedItems)
+      if (updated) {
+        pickItem(updated)
+      }
     }
   }
 
   return (
     <Fragment>
       <div className={className}>
-        <SInput setCharacters={setData} />
+        {/* <SInput setCharacters={setData} /> */}
         <SList
           data={
             data
@@ -36,10 +37,10 @@ const App: FC<SAppProps> = ({ className }) => {
               ? initial.characters.results
               : null
           }
-          pick={handlePick}
+          pickItem={handlePick}
         />
       </div>
-      <SParty picked={pickedCharacters} />
+      <SParty pickedItems={pickedItems} />
       {loading ? <SSpinner /> : null}
     </Fragment>
   )
