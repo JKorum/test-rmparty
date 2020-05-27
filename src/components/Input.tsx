@@ -9,7 +9,7 @@ import React, {
 } from 'react'
 import { useLazyQuery } from '@apollo/react-hooks'
 import styled from 'styled-components'
-import { SSpinner } from './'
+import { SSpinner } from './Spinner'
 import { Characters } from '../types/characters'
 import { CUSTOM } from '../queries/characters'
 

@@ -1,6 +1,6 @@
 import React, { FC, useState, SyntheticEvent } from 'react'
 import styled from 'styled-components'
-import { SItem } from './'
+import { SItem } from './Item'
 import { noBanned } from '../utils/filters'
 import { Characters } from '../types/characters'
 

@@ -1,6 +1,6 @@
 import React, { FC, SyntheticEvent } from 'react'
 import styled from 'styled-components'
-import { SButton } from './'
+import { SButton } from './Button'
 import { Characters } from '../types/characters'
 
 interface SItemProps {

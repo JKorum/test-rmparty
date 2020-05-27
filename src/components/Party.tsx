@@ -1,6 +1,7 @@
 import React, { FC, Fragment } from 'react'
 import styled from 'styled-components'
-import { SHeading, SSlot } from './'
+import { SHeading } from './Heading'
+import { SSlot } from './Slot'
 import { pickCharacter } from '../utils/filters'
 import { Characters } from '../types/characters'
 

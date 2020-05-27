@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { SSubHeading } from './'
+import { SSubHeading } from './Heading'
 import { Characters } from '../types/characters'
 
 interface SSlotProps {
